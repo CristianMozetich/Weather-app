@@ -1,5 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from "react";
+import Icons from './components/Icons';
+import'./App.scss'
 
 
 
@@ -49,26 +51,36 @@ const App = ()=> {
 
   return (
     <>
-      <h2>Weather</h2>
-      <input type="text"
-        onKeyDown={handleSearch}
-        autoFocus
-      />
-
-      <div>
-        {
-          (values) ? (
-            <div>
-              <h1> {values.name} </h1>
-              <p> {values.main.temp.toFixed(0)}&deg; </p>
-              <img src="" alt="" />
-            </div>
-
-          ) : (
+  <div className='weather_card'>
+    <div className='titulo'>
+      <h1>Weather</h1>
+        <div>
+          <input type="text"
+          onKeyDown={handleSearch}
+          autoFocus
+          />
+        </div>
+    </div>
+    <div>
+      {
+      (values) ? (
+        <div>
+          <div>
+            <h1> {values.name} </h1>
+            <p> {values.main.temp.toFixed(0)}&deg; </p>
+            <img src={Icons(icon)} alt="Icon-weather" />
+          </div>
+          <div>
+            <p>{values.main.temp_min.toFixed(0)}&deg;</p>
+            <p>{values.main.temp_max.toFixed(0)}&deg;</p>
+          </div>
+        </div>
+        ) : (
             <h1> City Not Found </h1>
-          )
-        }
+        )
+      }
       </div>
+  </div>
     </>
   );
 }
