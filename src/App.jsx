@@ -51,17 +51,17 @@ const App = ()=> {
 
   return (
     <>
-  <div className='weather_card'>
-    <div className='titulo'>
+  <div className='container'>
+    <div>
       <h1>Weather</h1>
-        <div>
+        <div className="input-container">
           <input type="text"
           onKeyDown={handleSearch}
           autoFocus
           />
         </div>
     </div>
-    <div>
+    <div className="card">
       {
       (values) ? (
         <div>
@@ -76,7 +76,7 @@ const App = ()=> {
           </div>
         </div>
         ) : (
-            <h1> City Not Found </h1>
+            <h1 className="error-message"> City Not Found </h1>
         )
       }
       </div>
